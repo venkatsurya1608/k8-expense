@@ -1,45 +1,45 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: backend
+  name: frontend
   namespace: expense
   # these labels are deployment related labels
   labels:
-    component: backend
+    component: frontend
     project: expense
-    tier: app
+    tier: web
 spec:
   replicas: 2
   selector:
     matchLabels:
-      component: backend
+      component: frontend
       project: expense
-      tier: app
+      tier: web
   # pod definition
   template:
     metadata:
       labels:
-        component: backend
+        component: frontend
         project: expense
-        tier: app
+        tier: web
     spec:
       containers:
-      - name: backend
-        image: joindevops/backend:v1.0
+      - name: frontend
+        image: joindevops/frontend:v1.0
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: frontend
   namespace: expense
 spec:
   selector:
-    component: backend
+    component: frontend
     project: expense
-    tier: app
+    tier: web
   ports:
   - protocol: TCP
-    port: 80 #service-port
-    targetPort: 80 #target-port
+    port: 3306 #service-port
+    targetPort: 3306 #target-port
     
