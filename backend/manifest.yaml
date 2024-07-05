@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: joindevops/backend:v1.0
+        image: venkatsurya1608/backend:1.6
         # resources:
         #   requests:
         #     cpu: "100m"
