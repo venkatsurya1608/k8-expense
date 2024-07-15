@@ -34,13 +34,13 @@ spec:
       containers:
       - name: backend
         image: venkatsurya1608/backend:1.6
-        # resources:
-        #   requests:
-        #     cpu: "100m"
-        #     memory: "128Mi"
-        #   limits:
-        #     cpu: "150m"
-        #     memory: "256Mi"
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "150m"
+            memory: "256Mi"
         envFrom:
         - configMapRef:
             name: backend
